@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Eco-LifeStyle-Agent/static/css/main.dc7f0986.css",
+    "main.js": "/Eco-LifeStyle-Agent/static/js/main.423432c7.js",
+    "index.html": "/Eco-LifeStyle-Agent/index.html",
+    "main.dc7f0986.css.map": "/Eco-LifeStyle-Agent/static/css/main.dc7f0986.css.map",
+    "main.423432c7.js.map": "/Eco-LifeStyle-Agent/static/js/main.423432c7.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.dc7f0986.css",
+    "static/js/main.423432c7.js"
+  ]
+}
