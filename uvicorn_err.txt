@@ -1,0 +1,584 @@
+INFO:     Started server process [21496]
+INFO:     Waiting for application startup.
+2026-09-07 21:10:59,135 INFO Downloading vector index asset 01a07a6b-7c94-754d-839d-9b5c7612642d …
+2026-09-07 21:10:59,135 INFO Refreshing IAM bearer token …
+2026-09-07 21:11:00,310 INFO IAM token refreshed, expires in 3600s
+2026-09-07 21:11:01,135 INFO Attachment list status: 405
+2026-09-07 21:11:01,137 INFO Falling back to SDK download …
+2026-09-07 21:11:02,205 INFO HTTP Request: POST https://iam.cloud.ibm.com/identity/token "HTTP/1.1 200 OK"
+2026-09-07 21:11:02,770 INFO HTTP Request: GET https://api.eu-gb.dataplatform.cloud.ibm.com/v2/projects/e0673068-6e03-48ec-a8c4-5ae780110009 "HTTP/1.1 200 OK"
+2026-09-07 21:11:02,777 INFO Client successfully initialized
+2026-09-07 21:11:02,986 INFO HTTP Request: GET https://api.eu-gb.dataplatform.cloud.ibm.com/v2/assets/01a07a6b-7c94-754d-839d-9b5c7612642d?version=2026-08-19&project_id=e0673068-6e03-48ec-a8c4-5ae780110009 "HTTP/1.1 200 OK"
+2026-09-07 21:11:02,994 INFO Successfully finished get assets for url: 'https://api.eu-gb.dataplatform.cloud.ibm.com/v2/assets/01a07a6b-7c94-754d-839d-9b5c7612642d?version=2026-08-19&project_id=e0673068-6e03-48ec-a8c4-5ae780110009'
+2026-09-07 21:11:03,469 INFO HTTP Request: GET https://api.eu-gb.dataplatform.cloud.ibm.com/v2/assets/01a07a6b-7c94-754d-839d-9b5c7612642d/attachments/01a07a6b-8961-762e-b2c4-bb510b0d8b00?version=2026-08-19&project_id=e0673068-6e03-48ec-a8c4-5ae780110009 "HTTP/1.1 200 OK"
+2026-09-07 21:11:05,086 INFO HTTP Request: GET https://s3.eu-gb.cloud-object-storage.appdomain.cloud/ecolifestyleagent-donotdelete-pr-hy8dpakwwet1gp/vector_index/eco-rag-index__da__9apzqhdnbq.gz?response-content-disposition=attachment%3B%20filename%3D%22vector_index%252Feco-rag-index__da__9apzqhdnbq.gz%22&response-content-type=application%2Fjson&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20260907T153511Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=9f67ca9b104845cd9e41e2a1804ad9c2%2F20260907%2Feu-gb%2Fs3%2Faws4_request&X-Amz-Signature=9908081a5ea07f565724db6d7eaedd554e5e7dc33ffbb7f3581b02af23c5f6b2 "HTTP/1.1 200 OK"
+2026-09-07 21:11:05,594 INFO Vector index loaded: 16 chunks, embedding dim=768
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+2026-09-07 21:14:45,854 ERROR Unhandled exception on GET /:
+Traceback (most recent call last):
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Program Files\Python311\Lib\contextlib.py", line 222, in __aexit__
+    await self.gen.athrow(typ, value, traceback)
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\_utils.py", line 93, in create_collapsing_task_group
+    raise exc from exc.__cause__ or context
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\_utils.py", line 86, in create_collapsing_task_group
+    yield tg
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\middleware\base.py", line 193, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Eco-LifeStyle-Agent-MadhumithaaN\backend\main.py", line 417, in strip_compression_headers
+    response.headers.pop("content-encoding", None)
+    ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'MutableHeaders' object has no attribute 'pop'
+
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\uvicorn\protocols\http\httptools_impl.py", line 421, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\uvicorn\middleware\proxy_headers.py", line 56, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\fastapi\applications.py", line 1162, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\applications.py", line 90, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\middleware\errors.py", line 186, in __call__
+    raise exc
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Program Files\Python311\Lib\contextlib.py", line 222, in __aexit__
+    await self.gen.athrow(typ, value, traceback)
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\_utils.py", line 93, in create_collapsing_task_group
+    raise exc from exc.__cause__ or context
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\_utils.py", line 86, in create_collapsing_task_group
+    yield tg
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\middleware\base.py", line 193, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Eco-LifeStyle-Agent-MadhumithaaN\backend\main.py", line 417, in strip_compression_headers
+    response.headers.pop("content-encoding", None)
+    ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'MutableHeaders' object has no attribute 'pop'
+2026-09-07 21:14:45,948 ERROR Unhandled exception on GET /favicon.ico:
+Traceback (most recent call last):
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Program Files\Python311\Lib\contextlib.py", line 222, in __aexit__
+    await self.gen.athrow(typ, value, traceback)
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\_utils.py", line 93, in create_collapsing_task_group
+    raise exc from exc.__cause__ or context
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\_utils.py", line 86, in create_collapsing_task_group
+    yield tg
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\middleware\base.py", line 193, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Eco-LifeStyle-Agent-MadhumithaaN\backend\main.py", line 417, in strip_compression_headers
+    response.headers.pop("content-encoding", None)
+    ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'MutableHeaders' object has no attribute 'pop'
+
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\uvicorn\protocols\http\httptools_impl.py", line 421, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\uvicorn\middleware\proxy_headers.py", line 56, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\fastapi\applications.py", line 1162, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\applications.py", line 90, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\middleware\errors.py", line 186, in __call__
+    raise exc
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Program Files\Python311\Lib\contextlib.py", line 222, in __aexit__
+    await self.gen.athrow(typ, value, traceback)
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\_utils.py", line 93, in create_collapsing_task_group
+    raise exc from exc.__cause__ or context
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\_utils.py", line 86, in create_collapsing_task_group
+    yield tg
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\middleware\base.py", line 193, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Eco-LifeStyle-Agent-MadhumithaaN\backend\main.py", line 417, in strip_compression_headers
+    response.headers.pop("content-encoding", None)
+    ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'MutableHeaders' object has no attribute 'pop'
+2026-09-07 21:26:55,124 INFO Retrieved 4 chunks for query: 'What are sustainable alternatives to single-use plastics?'
+2026-09-07 21:27:00,867 ERROR Unhandled exception on POST /chat:
+Traceback (most recent call last):
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Program Files\Python311\Lib\contextlib.py", line 222, in __aexit__
+    await self.gen.athrow(typ, value, traceback)
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\_utils.py", line 93, in create_collapsing_task_group
+    raise exc from exc.__cause__ or context
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\_utils.py", line 86, in create_collapsing_task_group
+    yield tg
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\middleware\base.py", line 193, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Eco-LifeStyle-Agent-MadhumithaaN\backend\main.py", line 417, in strip_compression_headers
+    response.headers.pop("content-encoding", None)
+    ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'MutableHeaders' object has no attribute 'pop'
+
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\uvicorn\protocols\http\httptools_impl.py", line 421, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\uvicorn\middleware\proxy_headers.py", line 56, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\fastapi\applications.py", line 1162, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\applications.py", line 90, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\middleware\errors.py", line 186, in __call__
+    raise exc
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Program Files\Python311\Lib\contextlib.py", line 222, in __aexit__
+    await self.gen.athrow(typ, value, traceback)
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\_utils.py", line 93, in create_collapsing_task_group
+    raise exc from exc.__cause__ or context
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\_utils.py", line 86, in create_collapsing_task_group
+    yield tg
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\middleware\base.py", line 193, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Eco-LifeStyle-Agent-MadhumithaaN\backend\main.py", line 417, in strip_compression_headers
+    response.headers.pop("content-encoding", None)
+    ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'MutableHeaders' object has no attribute 'pop'
+2026-09-07 21:28:22,239 INFO Retrieved 4 chunks for query: 'hi'
+2026-09-07 21:28:23,506 ERROR Unhandled exception on POST /chat:
+Traceback (most recent call last):
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Program Files\Python311\Lib\contextlib.py", line 222, in __aexit__
+    await self.gen.athrow(typ, value, traceback)
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\_utils.py", line 93, in create_collapsing_task_group
+    raise exc from exc.__cause__ or context
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\_utils.py", line 86, in create_collapsing_task_group
+    yield tg
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\middleware\base.py", line 193, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Eco-LifeStyle-Agent-MadhumithaaN\backend\main.py", line 417, in strip_compression_headers
+    response.headers.pop("content-encoding", None)
+    ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'MutableHeaders' object has no attribute 'pop'
+
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\uvicorn\protocols\http\httptools_impl.py", line 421, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\uvicorn\middleware\proxy_headers.py", line 56, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\fastapi\applications.py", line 1162, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\applications.py", line 90, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\middleware\errors.py", line 186, in __call__
+    raise exc
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Program Files\Python311\Lib\contextlib.py", line 222, in __aexit__
+    await self.gen.athrow(typ, value, traceback)
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\_utils.py", line 93, in create_collapsing_task_group
+    raise exc from exc.__cause__ or context
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\_utils.py", line 86, in create_collapsing_task_group
+    yield tg
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\middleware\base.py", line 193, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Eco-LifeStyle-Agent-MadhumithaaN\backend\main.py", line 417, in strip_compression_headers
+    response.headers.pop("content-encoding", None)
+    ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'MutableHeaders' object has no attribute 'pop'
+2026-09-07 21:39:05,949 INFO Retrieved 4 chunks for query: 'What are the best zero-waste swaps for the kitchen?'
+2026-09-07 21:39:09,811 ERROR Unhandled exception on POST /chat:
+Traceback (most recent call last):
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Program Files\Python311\Lib\contextlib.py", line 222, in __aexit__
+    await self.gen.athrow(typ, value, traceback)
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\_utils.py", line 93, in create_collapsing_task_group
+    raise exc from exc.__cause__ or context
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\_utils.py", line 86, in create_collapsing_task_group
+    yield tg
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\middleware\base.py", line 193, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Eco-LifeStyle-Agent-MadhumithaaN\backend\main.py", line 417, in strip_compression_headers
+    response.headers.pop("content-encoding", None)
+    ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'MutableHeaders' object has no attribute 'pop'
+
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\uvicorn\protocols\http\httptools_impl.py", line 421, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\uvicorn\middleware\proxy_headers.py", line 56, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\fastapi\applications.py", line 1162, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\applications.py", line 90, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\middleware\errors.py", line 186, in __call__
+    raise exc
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Program Files\Python311\Lib\contextlib.py", line 222, in __aexit__
+    await self.gen.athrow(typ, value, traceback)
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\_utils.py", line 93, in create_collapsing_task_group
+    raise exc from exc.__cause__ or context
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\_utils.py", line 86, in create_collapsing_task_group
+    yield tg
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\middleware\base.py", line 193, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Eco-LifeStyle-Agent-MadhumithaaN\backend\main.py", line 417, in strip_compression_headers
+    response.headers.pop("content-encoding", None)
+    ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'MutableHeaders' object has no attribute 'pop'
+2026-09-07 22:06:19,679 ERROR Unhandled exception on GET /health:
+Traceback (most recent call last):
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Program Files\Python311\Lib\contextlib.py", line 222, in __aexit__
+    await self.gen.athrow(typ, value, traceback)
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\_utils.py", line 93, in create_collapsing_task_group
+    raise exc from exc.__cause__ or context
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\_utils.py", line 86, in create_collapsing_task_group
+    yield tg
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\middleware\base.py", line 193, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Eco-LifeStyle-Agent-MadhumithaaN\backend\main.py", line 417, in strip_compression_headers
+    response.headers.pop("content-encoding", None)
+    ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'MutableHeaders' object has no attribute 'pop'
+
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\uvicorn\protocols\http\httptools_impl.py", line 421, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\uvicorn\middleware\proxy_headers.py", line 56, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\fastapi\applications.py", line 1162, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\applications.py", line 90, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\middleware\errors.py", line 186, in __call__
+    raise exc
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Program Files\Python311\Lib\contextlib.py", line 222, in __aexit__
+    await self.gen.athrow(typ, value, traceback)
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\_utils.py", line 93, in create_collapsing_task_group
+    raise exc from exc.__cause__ or context
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\_utils.py", line 86, in create_collapsing_task_group
+    yield tg
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\middleware\base.py", line 193, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Eco-LifeStyle-Agent-MadhumithaaN\backend\main.py", line 417, in strip_compression_headers
+    response.headers.pop("content-encoding", None)
+    ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'MutableHeaders' object has no attribute 'pop'
+2026-09-07 22:10:46,182 ERROR Unhandled exception on GET /health:
+Traceback (most recent call last):
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Program Files\Python311\Lib\contextlib.py", line 222, in __aexit__
+    await self.gen.athrow(typ, value, traceback)
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\_utils.py", line 93, in create_collapsing_task_group
+    raise exc from exc.__cause__ or context
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\_utils.py", line 86, in create_collapsing_task_group
+    yield tg
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\middleware\base.py", line 193, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Eco-LifeStyle-Agent-MadhumithaaN\backend\main.py", line 417, in strip_compression_headers
+    if "content-encoding" in response.headers:
+    ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'MutableHeaders' object has no attribute 'pop'
+
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\uvicorn\protocols\http\httptools_impl.py", line 421, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\uvicorn\middleware\proxy_headers.py", line 56, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\fastapi\applications.py", line 1162, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\applications.py", line 90, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\middleware\errors.py", line 186, in __call__
+    raise exc
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Program Files\Python311\Lib\contextlib.py", line 222, in __aexit__
+    await self.gen.athrow(typ, value, traceback)
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\_utils.py", line 93, in create_collapsing_task_group
+    raise exc from exc.__cause__ or context
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\_utils.py", line 86, in create_collapsing_task_group
+    yield tg
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\middleware\base.py", line 193, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Eco-LifeStyle-Agent-MadhumithaaN\backend\main.py", line 417, in strip_compression_headers
+    if "content-encoding" in response.headers:
+    ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'MutableHeaders' object has no attribute 'pop'
+2026-09-07 22:11:26,446 ERROR Unhandled exception on GET /health:
+Traceback (most recent call last):
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Program Files\Python311\Lib\contextlib.py", line 222, in __aexit__
+    await self.gen.athrow(typ, value, traceback)
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\_utils.py", line 93, in create_collapsing_task_group
+    raise exc from exc.__cause__ or context
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\_utils.py", line 86, in create_collapsing_task_group
+    yield tg
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\middleware\base.py", line 193, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Eco-LifeStyle-Agent-MadhumithaaN\backend\main.py", line 417, in strip_compression_headers
+    if "content-encoding" in response.headers:
+    ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'MutableHeaders' object has no attribute 'pop'
+
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\uvicorn\protocols\http\httptools_impl.py", line 421, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\uvicorn\middleware\proxy_headers.py", line 56, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\fastapi\applications.py", line 1162, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\applications.py", line 90, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\middleware\errors.py", line 186, in __call__
+    raise exc
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Program Files\Python311\Lib\contextlib.py", line 222, in __aexit__
+    await self.gen.athrow(typ, value, traceback)
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\_utils.py", line 93, in create_collapsing_task_group
+    raise exc from exc.__cause__ or context
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\_utils.py", line 86, in create_collapsing_task_group
+    yield tg
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\middleware\base.py", line 193, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Eco-LifeStyle-Agent-MadhumithaaN\backend\main.py", line 417, in strip_compression_headers
+    if "content-encoding" in response.headers:
+    ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'MutableHeaders' object has no attribute 'pop'
+2026-09-07 22:11:32,680 ERROR Unhandled exception on GET /health:
+Traceback (most recent call last):
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Program Files\Python311\Lib\contextlib.py", line 222, in __aexit__
+    await self.gen.athrow(typ, value, traceback)
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\_utils.py", line 93, in create_collapsing_task_group
+    raise exc from exc.__cause__ or context
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\_utils.py", line 86, in create_collapsing_task_group
+    yield tg
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\middleware\base.py", line 193, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Eco-LifeStyle-Agent-MadhumithaaN\backend\main.py", line 417, in strip_compression_headers
+    if "content-encoding" in response.headers:
+    ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'MutableHeaders' object has no attribute 'pop'
+
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\uvicorn\protocols\http\httptools_impl.py", line 421, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\uvicorn\middleware\proxy_headers.py", line 56, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\fastapi\applications.py", line 1162, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\applications.py", line 90, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\middleware\errors.py", line 186, in __call__
+    raise exc
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Program Files\Python311\Lib\contextlib.py", line 222, in __aexit__
+    await self.gen.athrow(typ, value, traceback)
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\_utils.py", line 93, in create_collapsing_task_group
+    raise exc from exc.__cause__ or context
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\_utils.py", line 86, in create_collapsing_task_group
+    yield tg
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\middleware\base.py", line 193, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Eco-LifeStyle-Agent-MadhumithaaN\backend\main.py", line 417, in strip_compression_headers
+    if "content-encoding" in response.headers:
+    ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'MutableHeaders' object has no attribute 'pop'
+2026-09-07 22:12:33,002 ERROR Unhandled exception on GET /health:
+Traceback (most recent call last):
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Program Files\Python311\Lib\contextlib.py", line 222, in __aexit__
+    await self.gen.athrow(typ, value, traceback)
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\_utils.py", line 93, in create_collapsing_task_group
+    raise exc from exc.__cause__ or context
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\_utils.py", line 86, in create_collapsing_task_group
+    yield tg
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\middleware\base.py", line 193, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Eco-LifeStyle-Agent-MadhumithaaN\backend\main.py", line 417, in strip_compression_headers
+    if "content-encoding" in response.headers:
+    ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'MutableHeaders' object has no attribute 'pop'
+
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\uvicorn\protocols\http\httptools_impl.py", line 421, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\uvicorn\middleware\proxy_headers.py", line 56, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\fastapi\applications.py", line 1162, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\applications.py", line 90, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\middleware\errors.py", line 186, in __call__
+    raise exc
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Program Files\Python311\Lib\contextlib.py", line 222, in __aexit__
+    await self.gen.athrow(typ, value, traceback)
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\_utils.py", line 93, in create_collapsing_task_group
+    raise exc from exc.__cause__ or context
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\_utils.py", line 86, in create_collapsing_task_group
+    yield tg
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\middleware\base.py", line 193, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Eco-LifeStyle-Agent-MadhumithaaN\backend\main.py", line 417, in strip_compression_headers
+    if "content-encoding" in response.headers:
+    ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'MutableHeaders' object has no attribute 'pop'
+2026-09-07 22:12:39,732 ERROR Unhandled exception on GET /health:
+Traceback (most recent call last):
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Program Files\Python311\Lib\contextlib.py", line 222, in __aexit__
+    await self.gen.athrow(typ, value, traceback)
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\_utils.py", line 93, in create_collapsing_task_group
+    raise exc from exc.__cause__ or context
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\_utils.py", line 86, in create_collapsing_task_group
+    yield tg
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\middleware\base.py", line 193, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Eco-LifeStyle-Agent-MadhumithaaN\backend\main.py", line 417, in strip_compression_headers
+    if "content-encoding" in response.headers:
+    ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'MutableHeaders' object has no attribute 'pop'
+
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\uvicorn\protocols\http\httptools_impl.py", line 421, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\uvicorn\middleware\proxy_headers.py", line 56, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\fastapi\applications.py", line 1162, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\applications.py", line 90, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\middleware\errors.py", line 186, in __call__
+    raise exc
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Program Files\Python311\Lib\contextlib.py", line 222, in __aexit__
+    await self.gen.athrow(typ, value, traceback)
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\_utils.py", line 93, in create_collapsing_task_group
+    raise exc from exc.__cause__ or context
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\_utils.py", line 86, in create_collapsing_task_group
+    yield tg
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\middleware\base.py", line 193, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Eco-LifeStyle-Agent-MadhumithaaN\backend\main.py", line 417, in strip_compression_headers
+    if "content-encoding" in response.headers:
+    ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'MutableHeaders' object has no attribute 'pop'
+2026-09-07 22:13:39,385 ERROR Unhandled exception on GET /health:
+Traceback (most recent call last):
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Program Files\Python311\Lib\contextlib.py", line 222, in __aexit__
+    await self.gen.athrow(typ, value, traceback)
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\_utils.py", line 93, in create_collapsing_task_group
+    raise exc from exc.__cause__ or context
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\_utils.py", line 86, in create_collapsing_task_group
+    yield tg
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\middleware\base.py", line 193, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Eco-LifeStyle-Agent-MadhumithaaN\backend\main.py", line 417, in strip_compression_headers
+    if "content-encoding" in response.headers:
+    ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'MutableHeaders' object has no attribute 'pop'
+
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\uvicorn\protocols\http\httptools_impl.py", line 421, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\uvicorn\middleware\proxy_headers.py", line 56, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\fastapi\applications.py", line 1162, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\applications.py", line 90, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\middleware\errors.py", line 186, in __call__
+    raise exc
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Program Files\Python311\Lib\contextlib.py", line 222, in __aexit__
+    await self.gen.athrow(typ, value, traceback)
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\_utils.py", line 93, in create_collapsing_task_group
+    raise exc from exc.__cause__ or context
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\_utils.py", line 86, in create_collapsing_task_group
+    yield tg
+  File "C:\Users\Chitra B\AppData\Roaming\Python\Python311\site-packages\starlette\middleware\base.py", line 193, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Eco-LifeStyle-Agent-MadhumithaaN\backend\main.py", line 417, in strip_compression_headers
+    if "content-encoding" in response.headers:
+    ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'MutableHeaders' object has no attribute 'pop'

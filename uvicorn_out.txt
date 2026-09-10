@@ -1,0 +1,13 @@
+Successfully saved data asset content to file: 'C:\Users\CHITRA~1\AppData\Local\Temp\tmpbi_lvmjt.gz'
+INFO:     127.0.0.1:65082 - "GET / HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:49161 - "GET /favicon.ico HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:53351 - "POST /chat HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:62539 - "POST /chat HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:59522 - "POST /chat HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:61853 - "GET /health HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:54348 - "GET /health HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:54349 - "GET /health HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:54350 - "GET /health HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:51911 - "GET /health HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:51912 - "GET /health HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:58645 - "GET /health HTTP/1.1" 500 Internal Server Error
